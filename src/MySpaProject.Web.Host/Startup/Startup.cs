@@ -17,6 +17,8 @@ using MySpaProject.Identity;
 
 using Abp.AspNetCore.SignalR.Hubs;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace MySpaProject.Web.Host.Startup
 {
@@ -64,9 +66,23 @@ namespace MySpaProject.Web.Host.Startup
             // Swagger - Enable this line and the related lines in Configure method to enable swagger UI
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new Info { Title = "MySpaProject API", Version = "v1" });
+                options.SwaggerDoc(_appConfiguration["SwaggerDoc:Name"],
+                    new Info {
+                        Title = _appConfiguration["SwaggerDoc:Info:Title"],
+                        Version = _appConfiguration["SwaggerDoc:Info:Version"]
+                    });
+				
+				var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location);//获取应用程序所在目录（绝对，不受工作目录影响，建议采用此方法获取路径）
+                
+                options.IncludeXmlComments(Path.Combine(basePath, _appConfiguration["SwaggerDoc:XMLDocuments"]));
+                
+                
+                
                 options.DocInclusionPredicate((docName, description) => true);
-
+				//options.DescribeAllEnumsAsStrings();
+               // options.DescribeStringEnumsInCamelCase();
+            //    options.DocumentFilter<IOperationFilter>();
+				
                 // Define the BearerAuth scheme that's in use
                 options.AddSecurityDefinition("bearerAuth", new ApiKeyScheme()
                 {

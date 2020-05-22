@@ -4,8 +4,9 @@ namespace MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos
 {
     public class CreateOrUpdatePersonInput
 {
-////BCC/ BEGIN CUSTOM CODE SECTION
-////ECC/ END CUSTOM CODE SECTION
+        /// <summary>
+        /// 用户创建
+        /// </summary>
         [Required]
         public PersonEditDto Person { get; set; }
 

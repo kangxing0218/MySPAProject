@@ -10,6 +10,10 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <RootNamespace>MySpaProject</RootNamespace>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Abp模板\4.8.0\aspnet-core\src\MySpaProject.Application\MySpaProject.Application.xml</DocumentationFile>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\MySpaProject.Core\MySpaProject.Core.csproj" />
   </ItemGroup>

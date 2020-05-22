@@ -1,0 +1,624 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MySpaProject.Application</name>
+    </assembly>
+    <members>
+        <member name="F:MySpaProject.AppConsts.DefaultPassPhrase">
+            <summary>
+            Default pass phrase for SimpleStringCipher decrypt/encrypt operations
+            </summary>
+        </member>
+        <member name="T:MySpaProject.PhoneBook.Enums.EnumAppService">
+            <summary>
+            枚举实现服务层
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.EnumAppService.GetEnumTypeList``1">
+            <summary>
+                通用的获取枚举类型的信息
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.EnumAppService.GetEnumTypeForIntList``1">
+            <summary>
+                通用的获取枚举类型的信息
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="P:MySpaProject.PhoneBook.Enums.EnumberCreditType.Desction">
+            <summary>  
+            枚举的描述  
+            </summary>  
+        </member>
+        <member name="P:MySpaProject.PhoneBook.Enums.EnumberCreditType.Key">
+            <summary>  
+            枚举名称  
+            </summary>  
+        </member>
+        <member name="P:MySpaProject.PhoneBook.Enums.EnumberCreditType.Value">
+            <summary>  
+            枚举对象的值  
+            </summary>  
+        </member>
+        <member name="P:MySpaProject.PhoneBook.Enums.EnumberCreditType.Name">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:MySpaProject.PhoneBook.Enums.EnumberCreditType.Classification">
+            <summary>
+            自定义
+            </summary>
+        </member>
+        <member name="T:MySpaProject.PhoneBook.Enums.Extensions.EnumExtensions">
+            <summary>
+                枚举<see cref="T:System.Enum" />的扩展辅助操作方法
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.Extensions.EnumExtensions.ToDescription(System.Enum)">
+            <summary>
+                获取枚举项上的<see cref="T:System.ComponentModel.DescriptionAttribute" />特性的文字描述
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.Extensions.EnumExtensions.Each(System.Type,System.Action{System.String,System.String,System.String})">
+            <summary>
+                枚举遍历，返回枚举的名称、值、特性
+            </summary>
+            <param name="enumType">枚举类型</param>
+            <param name="action">回调函数</param>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.Extensions.EnumExtensions.ToEnumDescriptionString(System.Int16,System.Type)">
+            <summary>
+                根据枚举类型值返回枚举定义Description属性
+            </summary>
+            <param name="value"></param>
+            <param name="enumType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:MySpaProject.PhoneBook.Enums.Extensions.TypeExtensions">
+            <summary>
+                类型<see cref="T:System.Type" />辅助扩展方法类
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.Extensions.TypeExtensions.IsNullableType(System.Type)">
+            <summary>
+                判断类型是否为Nullable类型
+            </summary>
+            <param name="type"> 要处理的类型 </param>
+            <returns> 是返回True，不是返回False </returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.Extensions.TypeExtensions.GetNonNummableType(System.Type)">
+            <summary>
+                由类型的Nullable类型返回实际类型
+            </summary>
+            <param name="type"> 要处理的类型对象 </param>
+            <returns> </returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.Extensions.TypeExtensions.GetUnNullableType(System.Type)">
+            <summary>
+                通过类型转换器获取Nullable类型的基础类型
+            </summary>
+            <param name="type"> 要处理的类型对象 </param>
+            <returns> </returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.Extensions.TypeExtensions.ToDescription(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+                获取成员元数据的Description特性描述信息
+            </summary>
+            <param name="member">成员元数据对象</param>
+            <param name="inherit">是否搜索成员的继承链以查找描述特性</param>
+            <returns>返回Description特性描述信息，如不存在则返回成员的名称</returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.Extensions.TypeExtensions.AttributeExists``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+                检查指定指定类型成员中是否存在指定的Attribute特性
+            </summary>
+            <typeparam name="T">要检查的Attribute特性类型</typeparam>
+            <param name="memberInfo">要检查的类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>是否存在</returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.Extensions.TypeExtensions.GetAttribute``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+                从类型成员获取指定Attribute特性
+            </summary>
+            <typeparam name="T">Attribute特性类型</typeparam>
+            <param name="memberInfo">类型类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>存在返回第一个，不存在返回null</returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.Extensions.TypeExtensions.GetAttributes``1(System.Reflection.MemberInfo,System.Boolean)">
+            <summary>
+                从类型成员获取指定Attribute特性
+            </summary>
+            <typeparam name="T">Attribute特性类型</typeparam>
+            <param name="memberInfo">类型类型成员</param>
+            <param name="inherit">是否从继承中查找</param>
+            <returns>返回所有指定Attribute特性的数组</returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.Enums.Extensions.TypeExtensions.IsEnumerable(System.Type)">
+            <summary>
+                判断类型是否为集合类型
+            </summary>
+            <param name="type">要处理的类型</param>
+            <returns>是返回True，不是返回False</returns>
+        </member>
+        <member name="T:MySpaProject.PhoneBook.Enums.IEnumAppService">
+            <summary>
+            枚举信息的服务层
+            </summary>
+        </member>
+        <member name="P:MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos.CreateOrUpdatePersonInput.Person">
+            <summary>
+            用户创建
+            </summary>
+        </member>
+        <member name="P:MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos.GetPersonsInput.Filter">
+            <summary>
+            模糊搜索使用的关键字
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos.GetPersonsInput.Normalize">
+            <summary>
+            正常化排序使用
+            </summary>
+        </member>
+        <member name="P:MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos.PersonEditDto.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos.PersonEditDto.Address">
+            <summary>
+            地址信息
+            </summary>
+        </member>
+        <member name="T:MySpaProject.PhoneBook.PhoneBooks.Persons.IPersonAppService">
+            <summary>
+            Person应用层服务的接口方法
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.IPersonAppService.GetPagedPersons(MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos.GetPersonsInput)">
+            <summary>
+            获取Person的分页列表信息
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.IPersonAppService.GetPersonByIdAsync(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            通过指定id获取PersonListDto信息
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.IPersonAppService.GetPersonForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int32})">
+            <summary>
+            MPA版本才会用到的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.IPersonAppService.CreateOrUpdatePerson(MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos.CreateOrUpdatePersonInput)">
+            <summary>
+            添加或者修改Person的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.IPersonAppService.DeletePerson(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+            删除Person信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.IPersonAppService.BatchDeletePersonsAsync(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            批量删除Person
+            </summary>
+        </member>
+        <member name="T:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService">
+            <summary>
+                Person应用层服务的接口实现方法
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService.#ctor(Abp.Domain.Repositories.IRepository{MySpaProject.PhoneBook.PhoneBooks.Persons.Person,System.Int32},MySpaProject.PhoneBook.Persons.DomainServices.IPersonManager,Abp.Domain.Repositories.IRepository{MySpaProject.PhoneBook.PhoneBooks.PhoneNumbers.PhoneNumber,System.Int64})">
+            <summary>
+                构造函数
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService.GetPagedPersons(MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos.GetPersonsInput)">
+            <summary>
+                获取Person的分页列表信息
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService.GetPersonByIdAsync(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+                通过指定id获取PersonListDto信息
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService.GetPersonForEdit(Abp.Application.Services.Dto.NullableIdDto{System.Int32})">
+            <summary>
+                导出Person为excel表
+            </summary>
+            <returns></returns>
+            <summary>
+                MPA版本才会用到的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService.CreateOrUpdatePerson(MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos.CreateOrUpdatePersonInput)">
+            <summary>
+                添加或者修改Person的公共方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService.DeletePerson(Abp.Application.Services.Dto.EntityDto{System.Int32})">
+            <summary>
+                删除Person信息的方法
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService.BatchDeletePersonsAsync(System.Collections.Generic.List{System.Int32})">
+            <summary>
+                批量删除Person的方法
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService.AddPhoneNumberAsync(MySpaProject.PhoneBook.PhoneBooks.PhoneNumbers.Dtos.PhoneNumberEditDto)">
+            <summary>
+                为联系人添加电话号码
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService.DeletePhoneNumberAsync(Abp.Application.Services.Dto.EntityDto{System.Int64})">
+            <summary>
+                删除电话号码信息
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService.CreatePersonAsync(MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos.PersonEditDto)">
+            <summary>
+                新增Person
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.Persons.PersonAppService.UpdatePersonAsync(MySpaProject.PhoneBook.PhoneBooks.Persons.Dtos.PersonEditDto)">
+            <summary>
+                编辑Person
+            </summary>
+        </member>
+        <member name="P:MySpaProject.PhoneBook.PhoneBooks.PhoneNumbers.Dtos.GetPhoneNumbersInput.Filter">
+            <summary>
+            模糊搜索使用的关键字
+            </summary>
+        </member>
+        <member name="M:MySpaProject.PhoneBook.PhoneBooks.PhoneNumbers.Dtos.GetPhoneNumbersInput.Normalize">
+            <summary>
+            正常化排序使用
+            </summary>
+        </member>
+        <member name="P:MySpaProject.PhoneBook.PhoneBooks.PhoneNumbers.Dtos.PhoneNumberEditDto.Number">
+            <summary>
+            电话号码
+            </summary>
+        </member>
+        <member name="T:MySpaProject.MySpaProjectAppServiceBase">
+            <summary>
+            Derive your application services from this class.
+            </summary>
+        </member>
+        <member name="T:MySpaProject.Net.MimeTypes.MimeTypeNames">
+            <summary>
+            Common mime types. 
+            </summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXJavascript">
+            <summary>Used to denote the encoding necessary for files containing JavaScript source code. The alternative MIME type for this file type is text/javascript.</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.AudioL24">
+            <summary>24bit Linear PCM audio at 8-48kHz, 1-N channels; Defined in RFC 3190</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXShockwaveFlash">
+            <summary>Adobe Flash files for example with the extension .swf</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationOctetStream">
+            <summary>Arbitrary binary data.[5] Generally speaking this type identifies files that are not associated with a specific application. Contrary to past assumptions by software packages such as Apache this is not a type that should be applied to unknown files. In such a case, a server or application should not indicate a content type, as it may be incorrect, but rather, should omit the type in order to allow the recipient to guess the type.[6]</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationAtomXml">
+            <summary>Atom feeds</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.TextCss">
+            <summary>Cascading Style Sheets; Defined in RFC 2318</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.TextCmd">
+            <summary>commands; subtype resident in Gecko browsers like Firefox 3.5</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.TextCsv">
+            <summary>Comma-separated values; Defined in RFC 4180</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXDeb">
+            <summary>deb (file format), a software package format used by the Debian project</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.MultipartEncrypted">
+            <summary>Defined in RFC 1847</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.MultipartSigned">
+            <summary>Defined in RFC 1847</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.MessageHttp">
+            <summary>Defined in RFC 2616</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ModelExample">
+            <summary>Defined in RFC 4735</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXDvi">
+            <summary>device-independent document in DVI format</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXmlDtd">
+            <summary>DTD files; Defined by RFC 3023</summary>
+        </member>
+        <!-- 对于成员“F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationJavascript”忽略有格式错误的 XML 注释 -->
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationEcmascript">
+            <summary>ECMAScript/JavaScript; Defined in RFC 4329 (equivalent to application/javascript but with stricter processing rules)</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationEdifact">
+            <summary>EDI EDIFACT data; Defined in RFC 1767</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationEdiX12">
+            <summary>EDI X12 data; Defined in RFC 1767</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.MessagePartial">
+            <summary>Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.MessageRfc822">
+            <summary>Email; EML files, MIME files, MHT files, MHTML files; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.TextXml">
+            <summary>Extensible Markup Language; Defined in RFC 3023</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.VideoXFlv">
+            <summary>Flash video (FLV files)</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ImageGif">
+            <summary>GIF image; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.TextXGwtRpc">
+            <summary>GoogleWebToolkit data</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXGzip">
+            <summary>Gzip</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.TextHtml">
+            <summary>HTML; Defined in RFC 2854</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ImageVndMicrosoftIcon">
+            <summary>ICO image; Registered[9]</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ModelIges">
+            <summary>IGS files, IGES files; Defined in RFC 2077</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.MessageImdnXml">
+            <summary>IMDN Instant Message Disposition Notification; Defined in RFC 5438</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationJson">
+            <summary>JavaScript Object Notation JSON; Defined in RFC 4627</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationJsonPatch">
+            <summary>JavaScript Object Notation (JSON) Patch; Defined in RFC 6902</summary>
+        </member>
+        <!-- 对于成员“F:MySpaProject.Net.MimeTypes.MimeTypeNames.TextJavascript”忽略有格式错误的 XML 注释 -->
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ImagePjpeg">
+            <summary>JPEG JFIF image; Associated with Internet Explorer; Listed in ms775147(v=vs.85) - Progressive JPEG, initiated before global browser support for progressive JPEGs (Microsoft and Firefox).</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ImageJpeg">
+            <summary>JPEG JFIF image; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.TextXJqueryTmpl">
+            <summary>jQuery template data</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationVndGoogleEarthKmlXml">
+            <summary>KML files (e.g. for Google Earth)</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXLatex">
+            <summary>LaTeX files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.VideoXMatroska">
+            <summary>Matroska open media format</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet">
+            <summary>Microsoft Excel 2007 files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationVndMsExcel">
+            <summary>Microsoft Excel files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation">
+            <summary>Microsoft Powerpoint 2007 files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationVndMsPowerpoint">
+            <summary>Microsoft Powerpoint files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument">
+            <summary>Microsoft Word 2007 files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationMsword">
+            <summary>Microsoft Word files[15]</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.MultipartAlternative">
+            <summary>MIME Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.MultipartMixed">
+            <summary>MIME Email; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.MultipartRelated">
+            <summary>MIME Email; Defined in RFC 2387 and used by MHTML (HTML mail)</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.MultipartFormData">
+            <summary>MIME Webform; Defined in RFC 2388</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationVndMozillaXulXml">
+            <summary>Mozilla XUL files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.AudioMpeg">
+            <summary>MP3 or other MPEG audio; Defined in RFC 3003</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.AudioMp4">
+            <summary>MP4 audio</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.VideoMp4">
+            <summary>MP4 video; Defined in RFC 4337</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.VideoMpeg">
+            <summary>MPEG-1 video with multiplexed audio; Defined in RFC 2045 and RFC 2046</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ModelMesh">
+            <summary>MSH files, MESH files; Defined in RFC 2077, SILO files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.AudioBasic">
+            <summary>mulaw audio at 8 kHz, 1 channel; Defined in RFC 2046</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.VideoOgg">
+            <summary>Ogg Theora or other video (with audio); Defined in RFC 5334</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.AudioOgg">
+            <summary>Ogg Vorbis, Speex, Flac and other audio; Defined in RFC 5334</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationOgg">
+            <summary>Ogg, a multimedia bitstream container format; Defined in RFC 5334</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXopXml">
+            <summary>OP</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentGraphics">
+            <summary>OpenDocument Graphics; Registered[14]</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentPresentation">
+            <summary>OpenDocument Presentation; Registered[13]</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentSpreadsheet">
+            <summary>OpenDocument Spreadsheet; Registered[12]</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationVndOasisOpendocumentText">
+            <summary>OpenDocument Text; Registered[11]</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs12">
+            <summary>p12 files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Certificates">
+            <summary>p7b and spc files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Mime">
+            <summary>p7c files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Certreqresp">
+            <summary>p7r files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXPkcs7Signature">
+            <summary>p7s files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationPdf">
+            <summary>Portable Document Format, PDF has been in use for document exchange on the Internet since 1993; Defined in RFC 3778</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ImagePng">
+            <summary>Portable Network Graphics; Registered,[8] Defined in RFC 2083</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationPostscript">
+            <summary>PostScript; Defined in RFC 2046</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.VideoQuicktime">
+            <summary>QuickTime video; Registered[10]</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXRarCompressed">
+            <summary>RAR archive files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.AudioVndRnRealaudio">
+            <summary>RealAudio; Documented in RealPlayer Customer Support Answer 2559</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationRdfXml">
+            <summary>Resource Description Framework; Defined by RFC 3870</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationRssXml">
+            <summary>RSS feeds</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationSoapXml">
+            <summary>SOAP; Defined by RFC 3902</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXStuffit">
+            <summary>StuffIt archive files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ImageSvgXml">
+            <summary>SVG vector image; Defined in SVG Tiny 1.2 Specification Appendix M</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ImageTiff">
+            <summary>Tag Image File Format (only for Baseline TIFF); Defined in RFC 3302</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXTar">
+            <summary>Tarball files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.TextPlain">
+            <summary>Textual data; Defined in RFC 2046 and RFC 3676</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXFontTtf">
+            <summary>TrueType Font No registered MIME type, but this is the most commonly used</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.TextVcard">
+            <summary>vCard (contact information); Defined in RFC 6350</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.AudioVorbis">
+            <summary>Vorbis encoded audio; Defined in RFC 5215</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.AudioVndWave">
+            <summary>WAV audio; Defined in RFC 2361</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationFontWoff">
+            <summary>Web Open Font Format; (candidate recommendation; use application/x-font-woff until standard is official)</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.VideoWebm">
+            <summary>WebM Matroska-based open media format</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.AudioWebm">
+            <summary>WebM open media format</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.AudioXMsWax">
+            <summary>Windows Media Audio Redirector; Documented in Microsoft help page</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.AudioXMsWma">
+            <summary>Windows Media Audio; Documented in Microsoft KB 288102</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.VideoXMsWmv">
+            <summary>Windows Media Video; Documented in Microsoft KB 288102</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ModelVrml">
+            <summary>WRL files, VRML files; Defined in RFC 2077</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ModelX3DXml">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3D XML files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ModelX3DBinary">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3DB binary files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ModelX3DVrml">
+            <summary>X3D ISO standard for representing 3D computer graphics, X3DV VRML files</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationXhtmlXml">
+            <summary>XHTML; Defined by RFC 3236</summary>
+        </member>
+        <member name="F:MySpaProject.Net.MimeTypes.MimeTypeNames.ApplicationZip">
+            <summary>ZIP archive files; Registered[7]</summary>
+        </member>
+        <member name="T:MySpaProjectAppServiceBase.PhoneBook.PhoneBooks.Persons.Dtos.LTMAutoMapper.CustomerPersonMapper">
+            <summary>
+            配置Person的AutoMapper
+            </summary>
+        </member>
+    </members>
+</doc>
